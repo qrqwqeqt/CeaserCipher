@@ -3,8 +3,6 @@ import string
 alphabet_lowercase = string.ascii_lowercase
 alphabet_uppercase = string.ascii_uppercase
 
-# print (alphabet_lowercase)
-# print (alphabet_uppercase)
 
 def foundIndex(letter):
     index = alphabet_lowercase.find(letter.lower())
