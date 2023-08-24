@@ -2,6 +2,7 @@ import string
 
 alphabet_lowercase = string.ascii_lowercase
 alphabet_uppercase = string.ascii_uppercase
+commands = ['1', '2', '3']
 
 
 def foundIndex(letter):
@@ -25,6 +26,7 @@ def swapLowerLetter(letter, step):
     return alphabet_lowercase[new_index]
 
 
+#*If the step is negative, decryption is in progress
 def encryptCeaser(text, step):
     encrypted_text = ""
     for letter in text:
@@ -33,7 +35,7 @@ def encryptCeaser(text, step):
             
         elif letter.islower():
             encrypted_text += swapLowerLetter(letter, step)
-            
+        #*If the character is not a letter
         else: 
             encrypted_text += letter
     return encrypted_text
@@ -41,8 +43,10 @@ def encryptCeaser(text, step):
 
 
 while True:
-    action = input('1. Encrytp text \n2. Decipher the text\n')
-    if action == '1' or  action == '2':
+    action = input('1. Encrytp text \n2. Decipher the text\n3. Exit \n')
+    if action in commands:
+        if action == '3':
+            break
         step = input('Enter Shift: ')
         if step.isdigit():
             text = input('Enter Message: ')
@@ -50,5 +54,8 @@ while True:
                 print (encryptCeaser(text, int(step)))
             if action == '2':
                 print (encryptCeaser(text, -(int(step))))
+        else:
+            print('Incorrect input')
+        
         
             
